@@ -1,0 +1,134 @@
+.profile-card {
+    background: var(--accent-bg);
+    border: 2px solid var(--accent-border);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 400px;
+    margin: 1rem auto;
+}
+
+.profile-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(170, 59, 255, 0.2);
+    border-color: var(--accent);
+}
+
+/* Profile Header */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    flex-shrink: 0;
+}
+
+.profile-name h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--text-h);
+}
+
+.username {
+    margin: 0.25rem 0 0;
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* Sections */
+.contact-section,
+.address-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-section h3,
+.address-section h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-h);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.5rem;
+}
+
+/* Contact Grid */
+.contact-grid {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.label {
+    font-size: 0.85rem;
+    color: var(--text);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.contact-item a {
+    color: var(--accent);
+    text-decoration: none;
+    word-break: break-word;
+    transition: color 0.2s ease;
+    font-weight: 500;
+}
+
+.contact-item a:hover {
+    color: var(--accent-border);
+    text-decoration: underline;
+}
+
+/* Address */
+address {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+address p {
+    margin: 0;
+    color: var(--text);
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-card {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+
+    .profile-name h2 {
+        font-size: 1.25rem;
+    }
+}
