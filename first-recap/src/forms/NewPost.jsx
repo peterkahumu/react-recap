@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './forms.module.css';
 
-const NewPostForm = ({ createPost }) => {
+const NewPostForm = ({ createPost, toggleModal }) => {
     const [error, setError] = useState("");
 
     const handleAddPost = (e) => {
@@ -23,6 +23,7 @@ const NewPostForm = ({ createPost }) => {
     
         setError("");  
         createPost({title, body});
+        toggleModal();
         form.reset();
     }
 
@@ -39,10 +40,12 @@ const NewPostForm = ({ createPost }) => {
                     <textarea className={styles.textarea} name="body" id="body" placeholder='Add body content here'  rows={3} />
                 </div>
 
-                <input type="submit" value="Create post" className={styles.submitButton} />
+                <input type="submit" value="Create post" className={`${styles.button} ${styles.submitButton}`} />
                 <span className={styles.errorMessage}>{error}</span>
             </form>
+            <button type="button" className={`${styles.button} ${styles.closeButton}`} onClick={toggleModal}>Close</button>
         </>
+        
     )
 }
 

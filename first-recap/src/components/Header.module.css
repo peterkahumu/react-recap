@@ -1,0 +1,73 @@
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in oklab, var(--bg) 92%, white 8%);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+}
+
+.inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.9rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logoIcon {
+    color: var(--primary);
+    font-size: 1.7rem;
+}
+
+.header .brandTitle {
+    margin: 0;
+    color: var(--text-dark);
+    font-size: 1.35rem;
+    line-height: 1.2;
+}
+
+.brandSubtitle {
+    margin: 0.1rem 0 0;
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+.createButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 0;
+    border-radius: 999px;
+    padding: 0.62rem 1rem;
+    background: var(--gradient-primary);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 14px rgba(170, 59, 255, 0.22);
+    transition: transform 0.2s ease;
+}
+
+.createButton:hover {
+    transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+    .inner {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .createButton {
+        width: 100%;
+        justify-content: center;
+    }
+}

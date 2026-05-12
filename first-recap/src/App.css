@@ -20,6 +20,25 @@ h1 {
   margin-bottom: 2rem;
 }
 
+.toggleModalButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1.25rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--gradient-primary);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 18px rgba(170, 59, 255, 0.2);
+}
+
+.toggleModalButton:hover {
+  transform: translateY(-1px);
+}
+
 .post-card {
   background: var(--gradient-card);
   border: 2px solid;
@@ -38,7 +57,7 @@ h1 {
   border-color: #aa3bff;
 }
 
-#author {
+#title {
   font-size: 1rem;
   font-weight: 600;
   color: var(--accent);
@@ -47,7 +66,7 @@ h1 {
   letter-spacing: 0.5px;
 }
 
-#content {
+#body {
   font-size: 1.1rem;
   color: var(--text-h);
   margin: 0;

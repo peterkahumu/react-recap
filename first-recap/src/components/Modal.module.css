@@ -1,0 +1,25 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+.modal {
+  position: fixed;
+  inset: auto;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  display: block;
+
+  border: none;
+  border-radius: 6px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+  width: min(90vw, 40rem);
+  z-index: 1001;
+}
