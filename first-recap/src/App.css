@@ -54,11 +54,6 @@ h1 {
   line-height: 1.6;
 }
 
-.button-container {
-  text-align: center;
-  margin-top: 2rem;
-}
-
 @media (max-width: 768px) {
   .app-container {
     padding: 1.5rem 1rem;

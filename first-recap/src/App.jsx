@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Button from "./components/Button";
 import Post from "./components/Post";
+import NewPostForm from "./forms/NewPost";
 import "./App.css";
 
 const App = () => {
@@ -23,6 +23,13 @@ const App = () => {
     }
   }
 
+  const createPost = (post) => {
+    setPosts((previousPosts) => [
+      {id: Date.now(), ...post},
+      ...previousPosts
+    ])
+  }
+
   useEffect(() => {
     fetchPosts()
   }, [])
@@ -32,6 +39,7 @@ const App = () => {
 
   return (
     <div className="app-container">
+      <NewPostForm createPost={createPost} />
       <h1>Hello there</h1>
       <div className="posts-grid">
         {posts.map(post => (
@@ -39,7 +47,6 @@ const App = () => {
         ))}
       </div>
       <div className="button-container">
-        <Button />
       </div>
     </div>
   );
