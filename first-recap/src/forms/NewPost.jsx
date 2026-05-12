@@ -21,8 +21,8 @@ const NewPostForm = ({ createPost }) => {
             return;
         };
     
-        setError("")
-        createPost({title, body})
+        setError("");  
+        createPost({title, body});
         form.reset();
     }
 
