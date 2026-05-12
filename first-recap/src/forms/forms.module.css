@@ -65,6 +65,8 @@
 }
 
 .errorMessage {
+    margin: 10px auto;
+    display: block;
     color: red;
-    font-size: 14px;
+    font-size: 20px;
 }
