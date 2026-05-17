@@ -5,18 +5,35 @@ import Modal from "./components/Modal";
 import NewPostForm from "./forms/NewPost";
 import "./App.css"
 
+// Dummy posts – both with guaranteed unique IDs
+const getDummyPosts = () => [
+  {
+    id: crypto.randomUUID(),
+    title: "This is a test",
+    body: "This is the body of the dummy post."
+  },
+  {
+    id: crypto.randomUUID(),
+    title: "This is the second post",
+    body: "This is a new body. Here another trial too."
+  }
+];
+
 const App = () => {
   const [showModal, setShowModal] = useState(true);
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const handleModalToggle = () => {
-    setShowModal((previous) => !previous);
+  const handleModalToggle = () => setShowModal(prev => !prev);
+
+  const createPost = (newPost) => {
+    setPosts(prev => [{ id: crypto.randomUUID(), ...newPost }, ...prev]);
   };
 
   const fetchPosts = async () => {
     setLoading(true);
+    setError(null);
     try {
       const response = await fetch("https://jsonplaceholder.typicode.com/posts");
       if (!response.ok) {
@@ -24,16 +41,14 @@ const App = () => {
       }
       const data = await response.json();
       setPosts(data);
-      setError(null);
-    } catch (fetchError) {
-      setError(fetchError.message || "Failed to fetch your data.");
+      // Success – no error, no fallback needed
+    } catch (error) {
+      setError(`${error.message}, rendering offline posts.` || "Error: Could not render live posts. Fallback to offline posts.");
+      // Fallback to dummy posts
+      setPosts(getDummyPosts());
     } finally {
       setLoading(false);
     }
-  };
-
-  const createPost = (post) => {
-    setPosts((previousPosts) => [{ id: Date.now(), ...post }, ...previousPosts]);
   };
 
   useEffect(() => {
@@ -50,7 +65,7 @@ const App = () => {
       <Header toggleModal={handleModalToggle} />
       <PostList posts={posts} loading={loading} error={error} />
     </>
-  )
-}
+  );
+};
 
 export default App;

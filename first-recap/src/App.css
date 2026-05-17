@@ -91,3 +91,12 @@ h1 {
     padding: 1.25rem;
   }
 }
+
+.error-banner {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  border-left: 4px solid #c62828;
+}

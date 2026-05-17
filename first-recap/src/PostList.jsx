@@ -5,10 +5,12 @@ import "./App.css";
 const PostList = ({ posts, loading, error }) => {
 
   if (loading) return <p>Loading Posts...</p>
-  if (error) return <p>{error}</p>
 
   return (
     <div className="app-container">
+      {error &&
+        <div className="error-banner">{error}</div>
+      }
       <div className="posts-grid">
         {posts.map(post => (
           <Post key={post.id} title={post.title} body={post.body} />
